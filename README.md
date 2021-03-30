@@ -8,5 +8,6 @@ The following is an extension to test the `dialog` API:
 
 ### How to use
 
-- `Dialog: Open`: opens a 'open dialog' dialog.
-- `Dialog: Save`: opens a 'save dialog` dialog.
+- `Dialog: Open`: opens an 'open dialog' dialog.
+- `Dialog: Open Many`: opens an 'open dialog' with `canSelectMany`.
+- `Dialog: Save`: opens an 'save dialog` dialog.

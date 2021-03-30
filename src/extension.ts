@@ -14,6 +14,14 @@ export function activate(context: vscode.ExtensionContext) {
 		})
 	);
 
+	disposables.push(
+		vscode.commands.registerCommand('vscode-dialog.open-many', async () => {
+			const options = getOpenManyDialogOptions();
+			const uri = await vscode.window.showOpenDialog(options);
+			vscode.window.showInformationMessage(`dialog-open-many: uri: ${uri?.join(', ')}`);
+		})
+	);
+
 	// Dialog Save.
 	disposables.push(
 		vscode.commands.registerCommand('vscode-dialog.save', async () => {
@@ -35,7 +43,19 @@ function getOpenDialogOptions(): vscode.OpenDialogOptions {
 		defaultUri: workspace ? workspace[0].uri : undefined,
 		openLabel: 'Custom Open Label',
 		canSelectFiles: true,
-		canSelectFolders: true,
+		canSelectFolders: false
+	};
+}
+
+function getOpenManyDialogOptions(): vscode.OpenDialogOptions {
+	const workspace = vscode.workspace.workspaceFolders;
+	return {
+		title: 'Custom Open Many Dialog',
+		defaultUri: workspace ? workspace[0].uri : undefined,
+		openLabel: 'Custom Open Many Label',
+		canSelectFiles: true,
+		canSelectFolders: false,
+		canSelectMany: true
 	};
 }
 

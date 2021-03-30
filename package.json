@@ -21,6 +21,10 @@
 				"title": "Dialog: Open"
 			},
 			{
+				"command": "vscode-dialog.open-many",
+				"title": "Dialog: Open Many"
+			},
+			{
 				"command": "vscode-dialog.save",
 				"title": "Dialog: Save"
 			}
